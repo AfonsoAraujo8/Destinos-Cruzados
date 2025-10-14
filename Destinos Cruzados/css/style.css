@@ -1,0 +1,336 @@
+/* Reset simples */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background: #f9f9f9;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Navbar */
+header {
+  background: #243569;
+  height: 70px; /* altura fixa */
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* separa logo da esquerda do container da direita */
+  width: 100%;
+}
+
+/* Logo à esquerda */
+.logo {
+  font-family: 'Russo One', sans-serif;
+  color: #feed00;
+  font-size: 1.5em;
+  text-decoration: none;
+  font-weight: normal;
+  font-style: italic;
+}
+
+/* Container à direita */
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 20px; /* espaçamento entre menu e logotipo */
+}
+
+/* Menu */
+.menu {
+  list-style: none;
+  display: flex;
+  gap: 20px; /* espaçamento entre links */
+  margin: 0;
+}
+
+.menu a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.menu a:hover {
+  text-decoration: underline;
+}
+
+/* Logotipo à direita */
+.logo-img {
+  height: 70px;    
+  width: auto;  
+  margin-left: 20px;
+}
+
+/* Hero */
+.hero {
+  text-align: center;
+  padding: 60px 20px;
+  background: url("../img/autocarro.jpg") no-repeat center/cover;
+  color: #fff;
+}
+
+.hero h1 {
+  font-size: 2.5em;
+  margin-bottom: 15px;
+}
+
+.hero p {
+  font-size: 1.2em;
+  margin-bottom: 20px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background: #ffcc00;
+  color: #000;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+.btn:hover {
+  background: #e6b800;
+}
+
+/* Footer */
+footer {
+  background-color: #243569;
+  color: #feed00;
+  padding: 15px 20px;
+  margin-top: 30px;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;   /* agora todos os elementos alinham verticalmente */
+  flex-wrap: wrap;
+  gap: 50px;             /* espaço entre colunas */
+  max-width: 1000px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.footer-logo {
+  height: 100px;   /* define um valor fixo mas proporcional */
+  width: auto;
+}
+
+
+.footer-info h4,
+.footer-links h4 {
+  margin-left:70px;
+  margin-bottom: 10px;
+  font-size: 1.1em;
+  color: #fff;
+}
+
+.footer-info ul,
+.footer-links ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-info li,
+.footer-links li {
+  margin-left: 70px;
+  margin-bottom: 8px;
+  font-size: 0.9em;
+}
+
+.footer-info a,
+.footer-links a {
+  color: #feed00;
+  text-decoration: none;
+}
+
+.footer-info a:hover,
+.footer-links a:hover {
+  text-decoration: underline;
+}
+
+.footer-bottom {
+  text-align: center;
+  font-size: 0.8em;
+  border-top: 1px solid rgba(255,255,255,0.3);
+  padding-top: 10px;
+  width: 100%;
+}
+
+.icon {
+  width: 18px;           /* tamanho do ícone */
+  height: auto;
+  margin-right: 8px;     /* espaço entre ícone e texto */
+  vertical-align: middle; /* alinha ao meio da linha de texto */
+}
+
+/* Ícones só da secção Acessos rápidos */
+.footer-links .icon {
+  width: 23px;     /* aumenta só aqui */
+  margin-right: 10px; /* opcional, mais espaço entre ícone e texto */
+}
+
+/* ---------- Secções gerais ---------- */
+section {
+  padding: 60px 20px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 2em;
+  color: #243569;
+}
+
+/* ---------- Hero ---------- */
+.hero {
+  text-align: center;
+  padding: 100px 20px;
+  background: url("../img/autocarro.jpg") no-repeat center/cover;
+  color: #fff;
+}
+
+.hero h1 {
+  font-size: 2.8em;
+  margin-bottom: 15px;
+}
+
+.hero p {
+  font-size: 1.3em;
+  margin-bottom: 25px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 12px 25px;
+  background: #feed00;
+  color: #243569;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background: #e6d200;
+}
+
+/* ---------- Serviços ---------- */
+.servicos-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+  margin-top: 20px;
+}
+
+.servicos-cards .card {
+  background: #fff;
+  border: 1px solid #ddd;
+  padding: 25px;
+  border-radius: 10px;
+  text-align: center;
+  transition: transform 0.3s;
+}
+
+.servicos-cards .card:hover {
+  transform: translateY(-5px);
+}
+
+.servicos-cards img {
+  width: 60px;
+  margin-bottom: 15px;
+}
+
+/* ---------- Quem Somos ---------- */
+#quem-somos {
+  background: #fff;
+  border-radius: 10px;
+  padding: 40px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+#orcamento button:hover {
+  background: #e6d200;
+}
+
+/* ---------- Frota ---------- */
+#frota {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 25px;
+}
+
+#frota img {
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+/* ---------- Contactos ---------- */
+#contactos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+  text-align: center;
+}
+
+#contactos .card {
+  background: #fff;
+  padding: 25px;
+  border-radius: 10px;
+  flex: 1 1 250px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+#contactos img {
+  width: 40px;
+  margin-bottom: 10px;
+}
+
+/* Secção Quem Somos */
+.quem-somos-section {
+  position: relative;
+  width: 100%;
+  margin: 0;
+  padding: 0; /* sem padding, quem controla é o content */
+  max-width: 100% !important; /* ignora a regra global das sections */
+}
+
+.quem-somos-section .quem-somos-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 60vh; /* ou usa height: 50vh para ser relativo ao ecrã */
+  background: url("../img/quemsomos.jpg") no-repeat center/cover;
+  z-index: 0;
+}
+
+/* Conteúdo branco por cima da imagem */
+.quem-somos-content {
+  position: relative;
+  z-index: 1;
+  background: #fff;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+  max-width: 1100px;  /* mantém o content limitado */
+  margin: 0 auto;
+  text-align: center;
+  transform: translateY(100px); /* empurra o content para dentro da imagem */
+}
