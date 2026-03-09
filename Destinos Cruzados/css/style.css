@@ -70,22 +70,25 @@ header {
   margin-left: 20px;
 }
 
-/* Hero */
 .hero {
+  position: relative;
   text-align: center;
-  padding: 60px 20px;
+  padding: 100px 20px;
   background: url("../img/autocarro.jpg") no-repeat center/cover;
-  color: #fff;
 }
 
-.hero h1 {
-  font-size: 2.5em;
-  margin-bottom: 15px;
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.5); /* camada branca translúcida */
+  z-index: 0;
 }
 
-.hero p {
-  font-size: 1.2em;
-  margin-bottom: 20px;
+.hero h1, .hero p {
+  position: relative;
+  z-index: 1;
+  color: #243569; /* azul escuro */
 }
 
 .btn {
@@ -229,30 +232,86 @@ h2 {
 }
 
 /* ---------- Serviços ---------- */
-.servicos-cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 25px;
-  margin-top: 20px;
+.servicos {
+  text-align: center;
+  background: #f9f9f9;
+  padding: 100px 20px 60px; /* mais espaço em cima (100px) */
+  margin-top: 80px; /* afasta ainda mais da secção anterior */
 }
 
-.servicos-cards .card {
+
+.servicos-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px 60px; /* espaço horizontal e vertical */
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* Cartões individuais */
+.card-servico {
   background: #fff;
   border: 1px solid #ddd;
-  padding: 25px;
   border-radius: 10px;
-  text-align: center;
-  transition: transform 0.3s;
+  padding: 30px 20px;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+  transition: transform 0.3s, box-shadow 0.3s;
+  width: 300px; /* largura consistente */
 }
 
-.servicos-cards .card:hover {
+.card-servico:hover {
   transform: translateY(-5px);
+  box-shadow: 0 5px 12px rgba(0,0,0,0.15);
 }
 
-.servicos-cards img {
-  width: 60px;
+.card-servico img {
+  width: 70px;
   margin-bottom: 15px;
 }
+
+.card-servico h3 {
+  color: #243569;
+  margin-bottom: 10px;
+  font-size: 1.3em;
+}
+
+.card-servico p {
+  font-size: 1em;
+  color: #333;
+}
+
+/* Alinhamento manual para a linha de baixo */
+.card-servico:nth-child(4) {
+  margin-top: 50px;       /* empurra a linha de baixo */
+  margin-left: 160px;     /* posiciona o 1º cartão da segunda linha */
+}
+
+.card-servico:nth-child(5) {
+  margin-top: 50px;
+  margin-left: 60px;      /* posiciona o 2º cartão da segunda linha */
+}
+
+/* Responsivo */
+@media (max-width: 900px) {
+  .servicos-cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .card-servico:nth-child(4),
+  .card-servico:nth-child(5) {
+    margin-left: 0;
+    margin-top: 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .servicos-cards {
+    grid-template-columns: 1fr;
+  }
+}
+
 
 /* ---------- Quem Somos ---------- */
 #quem-somos {
@@ -268,39 +327,202 @@ h2 {
 }
 
 /* ---------- Frota ---------- */
-#frota {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 25px;
+.frota {
+  background: #fff;
+  text-align: center;
+  padding: 100px 20px;
 }
 
-#frota img {
-  width: 100%;
-  border-radius: 10px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+.frota h2 {
+  color: #243569;
+  font-size: 2.2em;
+  margin-bottom: 25px; /* antes era 10px → aumenta o espaço abaixo do título */
 }
+
+.frota p {
+  font-size: 1.1em;
+  color: #444;
+  margin-bottom: 70px; /* antes era 50px → mais espaço entre subtítulo e as caixas */
+}
+
+.frota-veiculos {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 40px 30px; /* mantém o espaçamento interno entre as caixas */
+  max-width: 1200px;
+  margin: 0 auto 80px; /* antes era 60px → aumenta o espaço entre a 2ª linha e a caixa azul */
+}
+
+/* Responsivo — mantém o mesmo aspeto em ecrãs menores */
+@media (max-width: 1000px) {
+  .frota-veiculos {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .frota-veiculos {
+    grid-template-columns: 1fr;
+  }
+}
+
+.veiculo {
+  background: #f9f9f9;
+  border-radius: 12px;
+  padding: 25px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.veiculo:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.12);
+}
+
+.veiculo img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+.veiculo h3 {
+  color: #243569;
+  margin-bottom: 8px;
+}
+
+.veiculo p {
+  color: #555;
+  font-size: 0.95em;
+}
+
+/* Características gerais */
+.frota-caracteristicas {
+  background: #243569;
+  color: #fff;
+  padding: 40px;
+  border-radius: 10px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.frota-caracteristicas h3 {
+  margin-bottom: 20px;
+  font-size: 1.5em;
+}
+
+.frota-caracteristicas ul {
+  list-style: none;
+  padding: 0;
+}
+
+.frota-caracteristicas li {
+  margin-bottom: 10px;
+  font-size: 1.1em;
+  position: relative;
+}
+
+.frota-caracteristicas li::before {
+  content: "✔";
+  color: #4CAF50;
+  margin-right: 8px;
+}
+
 
 /* ---------- Contactos ---------- */
-#contactos {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 30px;
-  justify-content: center;
-  text-align: center;
-}
-
-#contactos .card {
+.contactos {
   background: #fff;
-  padding: 25px;
-  border-radius: 10px;
-  flex: 1 1 250px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  padding: 60px 20px 0; /* reduzido de 100px para 60px → menos distância acima */
+  text-align: center;
+  position: relative;
+  z-index: 1;
+  margin-top: 40px; /* espaço controlado entre secções */
 }
 
-#contactos img {
-  width: 40px;
-  margin-bottom: 10px;
+.contactos h2 {
+  font-size: 2.2em;
+  color: #243569;
+  margin-bottom: 15px;
 }
+
+.contactos-intro {
+  font-size: 1.1em;
+  color: #555;
+  margin-bottom: 40px;
+}
+
+.contactos-lista {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 25px;
+  margin-bottom: 60px;
+}
+
+.contacto-linha {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  font-size: 1.1em;
+  color: #243569;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.contacto-linha:hover {
+  transform: translateY(-3px);
+  opacity: 0.9;
+}
+
+.contacto-linha img {
+  width: 28px;
+  height: auto;
+}
+
+.contacto-linha a {
+  color: #243569;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.contacto-linha a:hover {
+  text-decoration: underline;
+}
+
+/* Linha decorativa azul */
+.linha-decorativa {
+  width: 120px;
+  height: 4px;
+  background-color: #243569;
+  margin: 40px auto;
+  border-radius: 2px;
+}
+
+/* Mapa Google */
+.mapa {
+  width: 100%;
+  height: 400px;
+  overflow: hidden;
+  margin-top: 30px;  /* ligeiro aumento do espaço antes do mapa */
+  margin-bottom: 70px; /* aumenta distância entre mapa e footer */
+}
+
+.mapa iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: block;
+}
+
+/* Responsivo */
+@media (max-width: 600px) {
+  .contacto-linha {
+    flex-direction: column;
+    text-align: center;
+    gap: 8px;
+  }
+}
+
 
 /* Secção Quem Somos */
 .quem-somos-section {
@@ -333,4 +555,32 @@ h2 {
   margin: 0 auto;
   text-align: center;
   transform: translateY(100px); /* empurra o content para dentro da imagem */
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Remover caixa branca da secção Frota e Contactos */
+.frota,
+.contactos {
+  max-width: 100% !important;
+  margin: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  background: #f9f9f9 !important; /* igual ao fundo do site */
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.hero h1 {
+  margin-bottom: 25px; /* estava 15px, aumentamos um pouco */
+}
+
+.servicos h2 {
+  margin-bottom: 45px; /* mais ar entre título e cartões */
+}
+
+.servicos-cards {
+  gap: 40px 70px; /* mais espaço vertical e horizontal */
 }
